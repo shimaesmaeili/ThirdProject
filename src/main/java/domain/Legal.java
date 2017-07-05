@@ -1,25 +1,24 @@
-package db;
+package domain;
 
 import java.sql.Date;
 
 public class Legal extends Customer{
-	int legalId;
+	int eCode;
 	String legalName;
 	Date legalDate;
 
-	Legal (int id, int legalId, String name, Date date){
-		super(id);
-		this.legalId = legalId;
+	Legal (int legalId, String name, Date date){
+		this.eCode = legalId;
 		this.legalName = name;
 		this.legalDate = date;
 	}
 
-	public int getLegalId() {
-		return legalId;
+	public int getCode() {
+		return eCode;
 	}
 
-	public void setLegalId(int legalId) {
-		this.legalId = legalId;
+	public void setCode(int legalId) {
+		this.eCode = legalId;
 	}
 
 	public String getLegalName() {

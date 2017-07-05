@@ -1,29 +1,29 @@
-package db;
+package domain;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Natural extends Customer{
-	int naturalId;
+	BigDecimal nCode;
 	String firstName;
 	String lastName;
 	String fatherName;
 	Date birthDate;
 
-	Natural(int id, int naturalId, String first, String last, String father, Date birth){
-		super(id);
-		this.naturalId = naturalId;
+	public Natural(BigDecimal naturalId, String first, String last, String father, Date birth){
+		this.nCode = naturalId;
 		this.firstName = first;
 		this.lastName = last;
 		this.fatherName = father;
 		this.birthDate = birth;
 	}
 
-	public int getNaturalId() {
-		return naturalId;
+	public BigDecimal getNationalCode() {
+		return nCode;
 	}
 
-	public void setNaturalId(int naturalId) {
-		this.naturalId = naturalId;
+	public void setNationalCode(BigDecimal naturalId) {
+		this.nCode = naturalId;
 	}
 
 	public String getFirstName() {
