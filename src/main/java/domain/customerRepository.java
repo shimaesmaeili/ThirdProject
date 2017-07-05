@@ -33,7 +33,7 @@ public class CustomerRepository {
 	public int nextId() throws SQLException {
 		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("select max(id) as max_id from customer");
+		ResultSet rs = st.executeQuery("select max(id) as max_id from accounts.customer");
 		int maxId = 0;
 		if (rs.next()) {
 			maxId = rs.getInt("max_id");
