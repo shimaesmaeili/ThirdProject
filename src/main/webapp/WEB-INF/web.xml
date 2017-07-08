@@ -26,20 +26,20 @@
     </jsp-config>
 
     <servlet>
-        <servlet-name>newCustomerServlet</servlet-name>
-        <servlet-class>controller.newCustomerServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>newCustomerServlet</servlet-name>
-        <url-pattern>/newCustomer</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>newNaturalServlet</servlet-name>
         <servlet-class>controller.newNaturalServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>newNaturalServlet</servlet-name>
         <url-pattern>/newNatural</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>newLegalServlet</servlet-name>
+        <servlet-class>controller.newLegalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newLegalServlet</servlet-name>
+        <url-pattern>/newLegal</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -26,15 +26,15 @@ public class Legal extends Customer{
 		return name;
 	}
 
-	public void setName(String legalName) {
-		this.name = legalName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Date legalDate) {
-		this.regDate = legalDate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 }

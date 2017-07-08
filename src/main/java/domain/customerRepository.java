@@ -15,7 +15,7 @@ public class CustomerRepository {
 	private CustomerRepository() {
 	}
 
-	public void insert(Customer customer) throws SQLException, ClassNotFoundException {
+	public int insert(Customer customer) throws SQLException, ClassNotFoundException {
 		customer.setId(nextId());
 		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
 		Statement st = con.createStatement();
@@ -35,13 +35,14 @@ public class CustomerRepository {
 					+ legal.getCode() + ", " + "'" + legal.getName() + "', '" + legal.getRegDate() + "', " + legal.getId() + ")");
 		}
 		con.close();
+		return customer.getId();
 	}
 
 	public int nextId() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
 		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("SELECT MAX (id) as max_id from accounts.customer");
+		ResultSet rs = st.executeQuery("SELECT max(id) as max_id from accounts.customer");
 		int maxId = 0;
 		if (rs.next()) {
 			maxId = rs.getInt("max_id");

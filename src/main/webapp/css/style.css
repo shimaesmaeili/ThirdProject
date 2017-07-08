@@ -51,6 +51,7 @@ a {
     border-radius: 10px;
     direction: rtl;
     margin: 10% 0 10% 0;
+    font-family: "B Nazanin+ Regular";
 }
 
 li a{
@@ -68,6 +69,7 @@ input, select {
     border-radius: 4px;
     box-sizing: border-box;
     font-family: "B Nazanin+ Regular";
+    direction: rtl;
 }
 
 input[type=submit] {
@@ -92,4 +94,19 @@ div {
     border-radius: 10px;
     direction: rtl;
     font-family: "B Nazanin+ Regular";
+}
+
+.big {
+    font-size: 200%;
+    margin: 100px;
+    text-align: center;
+}
+
+p {
+    direction: rtl;
+    font-family: "B Nazanin+ Regular";
+}
+
+form {
+    direction: rtl;
 }

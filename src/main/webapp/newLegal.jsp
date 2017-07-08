@@ -6,7 +6,7 @@
 </head>
 <body>
 <div>
-	<form action="welcome">
+	<form action="newLegal">
 		<table class="center">
 			<tr>
 				<th>اطلاعات مورد نیاز:</th>
@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td>تاریخ ثبت:</td>
-				<td><input type="date" name="date"></td>
+				<td><input type="date" name="regDate"></td>
 			</tr>
 			<tr>
 				<td>کد اقتصادی:</td>

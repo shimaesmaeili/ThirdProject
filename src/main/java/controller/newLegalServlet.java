@@ -21,11 +21,13 @@ public class newLegalServlet extends HttpServlet {
 
 		CustomerRepository rep = CustomerRepository.getInstance();
 		try {
-			rep.insert(new Legal(code, name, regDate));
+			int id = rep.insert(new Legal(code, name, regDate));
+			req.setAttribute("id", id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		req.getRequestDispatcher("/viewId.jsp").forward(req, resp);
 	}
 }
