@@ -4,26 +4,26 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Natural extends Customer{
-	BigDecimal nCode;
+	BigDecimal idCode;
 	String firstName;
 	String lastName;
 	String fatherName;
 	Date birthDate;
 
 	public Natural(BigDecimal naturalId, String first, String last, String father, Date birth){
-		this.nCode = naturalId;
+		this.idCode = naturalId;
 		this.firstName = first;
 		this.lastName = last;
 		this.fatherName = father;
 		this.birthDate = birth;
 	}
 
-	public BigDecimal getNationalCode() {
-		return nCode;
+	public BigDecimal getCode() {
+		return idCode;
 	}
 
-	public void setNationalCode(BigDecimal naturalId) {
-		this.nCode = naturalId;
+	public void setCode(BigDecimal naturalId) {
+		this.idCode = naturalId;
 	}
 
 	public String getFirstName() {

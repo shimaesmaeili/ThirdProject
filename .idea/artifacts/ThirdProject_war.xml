@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ThirdProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="dotin.school.thirdProject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ThirdProject:war exploded" />
+    </root>
+  </artifact>
+</component>

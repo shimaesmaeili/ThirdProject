@@ -1,39 +1,40 @@
 package domain;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Legal extends Customer{
-	int eCode;
-	String legalName;
-	Date legalDate;
+	BigDecimal eCode;
+	String name;
+	Date regDate;
 
-	Legal (int legalId, String name, Date date){
-		this.eCode = legalId;
-		this.legalName = name;
-		this.legalDate = date;
+	public Legal (BigDecimal code, String name, Date date){
+		this.eCode = code;
+		this.name = name;
+		this.regDate = date;
 	}
 
-	public int getCode() {
+	public BigDecimal getCode() {
 		return eCode;
 	}
 
-	public void setCode(int legalId) {
-		this.eCode = legalId;
+	public void setCode(BigDecimal code) {
+		this.eCode = code;
 	}
 
-	public String getLegalName() {
-		return legalName;
+	public String getName() {
+		return name;
 	}
 
-	public void setLegalName(String legalName) {
-		this.legalName = legalName;
+	public void setName(String legalName) {
+		this.name = legalName;
 	}
 
-	public Date getLegalDate() {
-		return legalDate;
+	public Date getRegDate() {
+		return regDate;
 	}
 
-	public void setLegalDate(Date legalDate) {
-		this.legalDate = legalDate;
+	public void setRegDate(Date legalDate) {
+		this.regDate = legalDate;
 	}
 }
