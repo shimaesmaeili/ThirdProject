@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>newCustomerServlet</servlet-name>
-        <servlet-class>controller.newCustomerServlet</servlet-class>
+        <servlet-class>controller.NewCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>newCustomerServlet</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>searchServlet</servlet-name>
-        <servlet-class>controller.searchServlet</servlet-class>
+        <servlet-class>controller.SearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>searchServlet</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>removeServlet</servlet-name>
-        <servlet-class>controller.removeServlet</servlet-class>
+        <servlet-class>controller.RemoveServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>removeServlet</servlet-name>
@@ -33,7 +33,7 @@
 
     <servlet>
         <servlet-name>showServlet</servlet-name>
-        <servlet-class>controller.showServlet</servlet-class>
+        <servlet-class>controller.ShowServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>showServlet</servlet-name>
@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>updateServlet</servlet-name>
-        <servlet-class>controller.updateServlet</servlet-class>
+        <servlet-class>controller.UpdateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>updateServlet</servlet-name>
