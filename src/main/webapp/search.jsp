@@ -3,59 +3,51 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>جستجو</title>
-	<script>
-		function byType() {
-			if (document.getElementById('fieldsByType').childElementCount > 0){
-				var oldFields = document.getElementById('fieldsByType').children;
-				for (i = 0; i < oldFields.length; i++) {
-					document.getElementById('fieldsByType').removeChild(oldFields[i]);
-				}
-			}
-			if (document.getElementById("customerType").value == "natural"){
-				var fields = document.createElement('select');
-				fields.id = "fields";
-				fields.tagName = "fields";
-				fields.innerHTML = "<option selected disabled hidden style='display: none' value=''></option>\n<option id='field1' value=\"firstName\">نام</option>\n<option id='field2' value=\"lastName\">نام خانوادگی</option>\n<option id='field3' value=\"idCoe\">کد ملی</option>\n<option id='field4' value=\"id\">شماره مشتری</option>";
-				document.getElementById("fieldsByType").appendChild(fields);
-			}
-			else if (document.getElementById("customerType").value == "legal"){
-				var fields = document.createElement('select');
-				fields.id = "fields";
-				fields.tagName = "fields";
-				fields.innerHTML = "<option selected disabled hidden style='display: none' value=''></option>\n<option id='field1' value=\"name\">نام شرکت</option>\n<option id='field2' value=\"eCode\">کد اقتصادی</option>\n<option id='field3' value=\"id\">شماره مشتری</option>";
-				document.getElementById("fieldsByType").appendChild(fields);
-			}
-		}
-		
-		function addInput() {
-			var input = document.createElement('input');
-			input.type = "text"
-			input.name = "value";
-			document.getElementById("input").appendChild(input);
-
-			var bottun = document.createElement('input');
-			bottun.type = "submit"
-			bottun.value = "جستجو";
-			document.getElementById("input").appendChild(bottun);
-		}
-	</script>
 </head>
+
 <body>
-<form id="search">
-	<div id="type" name="type">
-		<p>نوع مشتری:</p>
-		<select id="customerType" name="customerType" onchange="byType()">
+<form id="search" action="/search">
+	<fieldset class="center">
+		نوع مشتری: <br>
+		<select id="customerType" name="customerType" onchange="byType(this.value)" class="fixed">
 			<option selected disabled hidden style='display: none' value=''></option>
 			<option value="natural">مشتری حقیقی</option>
 			<option value="legal">مشتری حقوقی</option>
 		</select>
-	</div>
 
-	<div id="fieldsByType" name="field" onchange="addInput()">
-	</div>
+		<br>جستجو بر اساس: <br>
+		<select id="customerField" name="customerField" selected="id" class="fixed">
+			<option data-option="natural" value="firstName">نام</option>
+			<option data-option="natural" value="lastName">نام خانوادگی</option>
+			<option data-option="natural" value="idCode">کد ملی</option>
+			<option data-option="natural" value="id">شماره مشتری</option>
+			<option data-option="legal" value="name">نام شرکت</option>
+			<option data-option="legal" value="eCode">کد اقتصادی</option>
+			<option data-option="legal" value="id">شماره مشتری</option>
+		</select>
 
-	<p id="input" class="center"></p>
+		<br>مقدار مورد نظر:<br>
+		<input type="text" name="field" class="fixed">
+		<br>
+		<input type="submit" value="جستجو">
 
+		<script type="text/javascript">
+			var sel1 = document.querySelector('#customerType');
+			var sel2 = document.querySelector('#customerField');
+			var options2 = sel2.querySelectorAll('option');
+
+			function byType(selValue) {
+				sel2.innerHTML = '';
+				for (var i = 0; i < options2.length; i++) {
+					if (options2[i].dataset.option == selValue) {
+						sel2.appendChild(options2[i]);
+					}
+				}
+			}
+			byType(sel1.value);
+		</script>
+	</fieldset>
 </form>
+<a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>

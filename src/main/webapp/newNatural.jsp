@@ -1,5 +1,5 @@
-<%@page pageEncoding="UTF-8" language="java"%>
-<%@page contentType="text/html;charset=UTF-8"%>
+<%@page pageEncoding="UTF-8" language="java" %>
+<%@page contentType="text/html;charset=UTF-8" %>
 
 <html>
 <head>
@@ -9,13 +9,11 @@
 </head>
 <body>
 
+<h3 class="center">اطلاعات مورد نیاز: </h3>
+
 <div>
-	<form action="newNatural">
-		<table class="center">
-			<tr>
-				<th>اطلاعات مورد نیاز:</th>
-				<th></th>
-			</tr>
+	<form action="newCustomer">
+		<table>
 			<tr>
 				<td>نام:</td>
 				<td><input type="text" id="first" name="firstName"><br></td>
@@ -36,12 +34,11 @@
 				<td>کد ملی:</td>
 				<td><input type="text" name="code"></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="ثبت"></td>
-			</tr>
 		</table>
+		<input type="hidden" name="customerType" value="natural">
+		<input type="submit" value="ثبت">
 	</form>
 </div>
+<a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>

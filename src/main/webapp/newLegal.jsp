@@ -5,13 +5,12 @@
 	<title>مشتری حقوقی جدید</title>
 </head>
 <body>
+
+<h3 class="center">اطلاعات مورد نیاز: </h3>
+
 <div>
-	<form action="newLegal">
+	<form action="newCustomer">
 		<table class="center">
-			<tr>
-				<th>اطلاعات مورد نیاز:</th>
-				<th></th>
-			</tr>
 			<tr>
 				<td>نام شرکت:</td>
 				<td><input type="text" name="name"><br></td>
@@ -24,12 +23,11 @@
 				<td>کد اقتصادی:</td>
 				<td><input type="text" name="code"></td>
 			</tr>
-			<tr>
-				<td></td>
-				<td><input type="submit" value="ثبت"></td>
-			</tr>
 		</table>
+		<input type="hidden" name="customerType" value="legal">
+		<input type="submit" value="ثبت">
 	</form>
 </div>
+<a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>

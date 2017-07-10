@@ -26,20 +26,47 @@
     </jsp-config>
 
     <servlet>
-        <servlet-name>newNaturalServlet</servlet-name>
-        <servlet-class>controller.newNaturalServlet</servlet-class>
+        <servlet-name>newCustomerServlet</servlet-name>
+        <servlet-class>controller.newCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>newNaturalServlet</servlet-name>
-        <url-pattern>/newNatural</url-pattern>
+        <servlet-name>newCustomerServlet</servlet-name>
+        <url-pattern>/newCustomer</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>newLegalServlet</servlet-name>
-        <servlet-class>controller.newLegalServlet</servlet-class>
+        <servlet-name>searchServlet</servlet-name>
+        <servlet-class>controller.searchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>newLegalServlet</servlet-name>
-        <url-pattern>/newLegal</url-pattern>
+        <servlet-name>searchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeServlet</servlet-name>
+        <servlet-class>controller.removeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeServlet</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showServlet</servlet-name>
+        <servlet-class>controller.showServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showServlet</servlet-name>
+        <url-pattern>/show</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateServlet</servlet-name>
+        <servlet-class>controller.updateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
     </servlet-mapping>
 </web-app>
