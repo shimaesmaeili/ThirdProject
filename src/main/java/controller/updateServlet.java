@@ -1,6 +1,6 @@
 package controller;
 
-import domain.CustomerRepository;
+import domain.customerRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;
-import java.util.Set;
 
 public class updateServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		CustomerRepository rep = CustomerRepository.getInstance();
+		customerRepository rep = customerRepository.getInstance();
 		Map<String, String[]> mapParam = req.getParameterMap();
 
 		try {
