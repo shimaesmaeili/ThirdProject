@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>newCustomerServlet</servlet-name>
-        <servlet-class>controller.newCustomerServlet</servlet-class>
+        <servlet-class>controller.CustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>newCustomerServlet</servlet-name>
