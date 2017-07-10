@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.SQLException;
 
-public class ShowServlet extends HttpServlet {
+public class owServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		CustomerRepository rep = CustomerRepository.getInstance();
