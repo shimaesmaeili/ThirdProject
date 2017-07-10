@@ -20,6 +20,10 @@ public class CustomerRepository {
 	private CustomerRepository() {
 	}
 
+	public void a {
+
+	}
+
 	public int insert(Customer customer) throws ClassNotFoundException {
 		try {
 			customer.setId(nextId());
