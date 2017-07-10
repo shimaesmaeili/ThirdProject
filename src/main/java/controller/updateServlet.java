@@ -12,18 +12,26 @@ import java.util.Map;
 
 public class updateServlet extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		CustomerRepository rep = CustomerRepository.getInstance();
 		Map<String, String[]> mapParam = req.getParameterMap();
 
 		try {
-			rep.update(mapParam);
+			int result = rep.update(mapParam);
+			if (result > 0) {
+				req.getRequestDispatcher("/index.jsp").forward(req, resp);
+			} else {
+				req.setAttribute("message", "امکان تغییر کد مشتری به کد جدید وجود ندارد!");
+				req.getRequestDispatcher("/error.jsp").forward(req, resp);
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
-		req.getRequestDispatcher("/index.jsp").forward(req, resp);
 	}
 }

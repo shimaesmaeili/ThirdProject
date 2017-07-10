@@ -13,11 +13,14 @@ import java.sql.SQLException;
 
 public class showServlet extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		CustomerRepository rep = CustomerRepository.getInstance();
 		Customer finded = null;
 		try {
 			finded = rep.findById(req.getParameter("customerType"), Integer.parseInt(req.getParameter("id")));
+			req.setAttribute("customerType", req.getParameter("customerType"));
+			req.setAttribute("customer", finded);
+			req.getRequestDispatcher("/edit.jsp").forward(req, resp);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -30,9 +33,10 @@ public class showServlet extends HttpServlet {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		req.setAttribute("customerType", req.getParameter("customerType"));
-		req.setAttribute("customer", finded);
-		req.getRequestDispatcher("/edit.jsp").forward(req, resp);
 	}
 }

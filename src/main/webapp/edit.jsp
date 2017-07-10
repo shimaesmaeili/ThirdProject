@@ -51,10 +51,15 @@
 					<td><input type="text" name="eCode" value=${customer.code}></td>
 				</tr>
 			</c:if>
+			<tr>
+				<td></td>
+				<td>
+					<input type="hidden" name="customerType" value=${customerType}>
+					<input type="hidden" name="id" value=${customer.id}>
+					<input type="submit" value="ثبت">
+				</td>
+			</tr>
 		</table>
-		<input type="hidden" name="customerType" value=${customerType}>
-		<input type="hidden" name="id" value=${customer.id}>
-		<input type="submit" value="ثبت">
 	</form>
 </div>
 <br><br>

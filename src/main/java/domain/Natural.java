@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Map;
 
-public class Natural extends Customer{
+public class Natural extends Customer {
 	BigDecimal idCode;
 	String firstName;
 	String lastName;
 	String fatherName;
 	Date birthDate;
 
-	public Natural(BigDecimal idCode, String first, String last, String father, Date birth){
+	public Natural(BigDecimal idCode, String first, String last, String father, Date birth) {
 		this.idCode = idCode;
 		this.firstName = first;
 		this.lastName = last;

@@ -3,10 +3,32 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>جستجو</title>
+
+	<script>
+		function Validate() {
+			var frm = document.searchForm;
+			if (frm.customerType.value == "") {
+				alert("انتخاب نوع مشتری الزامی است!");
+				return false;
+			} else if (frm.customerField.value == "") {
+				alert("انتخاب فیلد جستجو الزامی است!");
+				return false;
+			} else if (frm.field.value == "") {
+				alert("وارد کردن عبارت جستجو الزامی است!");
+				return false;
+			}
+			return true;
+		}
+		function Clicked(){
+			if (Validate()){
+				document.searchForm.submit();
+			}
+		}
+	</script>
 </head>
 
 <body>
-<form id="search" action="/search">
+<form id="search" action="/search" name="searchForm">
 	<fieldset class="size">
 		نوع مشتری: <br>
 		<select id="customerType" name="customerType" onchange="byType(this.value)" class="fixed">
@@ -29,7 +51,7 @@
 		<br>مقدار مورد نظر:<br>
 		<input type="text" name="field" class="fixed">
 		<br><br>
-		<input type="submit" value="جستجو">
+		<input type="button" value="جستجو" onclick="Clicked()">
 
 		<script type="text/javascript">
 			var sel1 = document.querySelector('#customerType');

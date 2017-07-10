@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Map;
 
-public class Legal extends Customer{
+public class Legal extends Customer {
 	BigDecimal eCode;
 	String name;
 	Date regDate;
 
-	public Legal (BigDecimal code, String name, Date date){
+	public Legal(BigDecimal code, String name, Date date) {
 		this.eCode = code;
 		this.name = name;
 		this.regDate = date;

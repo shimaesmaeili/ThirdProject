@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class newCustomerServlet extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		CustomerRepository rep = CustomerRepository.getInstance();
 		Map<String, String[]> mapParam = req.getParameterMap();
 
@@ -22,7 +22,13 @@ public class newCustomerServlet extends HttpServlet {
 
 		try {
 			int id = rep.insert((Customer) Class.forName("domain."+type).getConstructor(Map.class).newInstance(mapParam));
-			req.setAttribute("id", id);
+			if (id > 1){
+				req.setAttribute("id", id);
+				req.getRequestDispatcher("/viewId.jsp").forward(req, resp);
+			} else {
+				req.setAttribute("message", "مشتری با این کد قبلا ثبت شده است.");
+				req.getRequestDispatcher("/error.jsp").forward(req, resp);
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (NoSuchMethodException e) {
@@ -35,7 +41,10 @@ public class newCustomerServlet extends HttpServlet {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		req.getRequestDispatcher("/viewId.jsp").forward(req, resp);
 	}
 }

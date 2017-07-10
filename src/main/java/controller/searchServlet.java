@@ -14,11 +14,14 @@ import java.util.ArrayList;
 
 public class searchServlet extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		CustomerRepository rep = CustomerRepository.getInstance();
 		ArrayList<Customer> searchResults = null;
 		try {
 			searchResults = rep.search(req.getParameter("customerType"), req.getParameter("customerField"), req.getParameter("field"));
+			req.setAttribute("customers", searchResults);
+			req.setAttribute("customerType", req.getParameter("customerType"));
+			req.getRequestDispatcher("/viewResult.jsp").forward(req, resp);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -31,9 +34,10 @@ public class searchServlet extends HttpServlet {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
 			e.printStackTrace();
+		} catch (ServletException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		req.setAttribute("customers", searchResults);
-		req.setAttribute("customerType", req.getParameter("customerType"));
-		req.getRequestDispatcher("/viewResult.jsp").forward(req, resp);
 	}
 }

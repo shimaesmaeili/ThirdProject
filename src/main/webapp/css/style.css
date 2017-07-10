@@ -60,6 +60,19 @@ input[type=submit] {
     float: left;
 }
 
+input[type=button] {
+    display: block;
+    margin: auto;
+    width: 100px;
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: medium;
+    float: left;
+}
+
 input[type=submit]:hover {
     background-color: #45a049;
 }

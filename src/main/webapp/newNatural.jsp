@@ -6,13 +6,39 @@
 	<META http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>مشتری حقیقی جدید</title>
+
+	<script>
+		function Validate() {
+			var frm = document.naturalForm;
+			if (frm.firstName.value == "") {
+				alert("وارد کردن نام الزامی است!");
+				return false;
+			} else if (frm.lastName.value == "") {
+				alert("وارد کردن نام خانوادگی الزامی است!");
+				return false;
+			} else if (frm.fatherName.value == "") {
+				alert("وارد کردن نام پدر الزامی است!");
+				return false;
+			} else if (frm.birthDate.value == "") {
+				alert("وارد کردن تاریخ تولد الزامی است!");
+				return false;
+			} else if (frm.code.value == "") {
+				alert("وارد کردن کد ملی الزامی است!");
+				return false;
+			}
+			return true;
+		}
+		function Clicked(){
+			if (Validate()){
+				document.naturalForm.submit();
+			}
+		}
+	</script>
 </head>
 <body>
-
 <h3 class="center">اطلاعات مورد نیاز: </h3>
-
 <div>
-	<form action="newCustomer">
+	<form action="newCustomer" name="naturalForm">
 		<table>
 			<tr>
 				<td>نام:</td>
@@ -38,7 +64,7 @@
 				<td></td>
 				<td>
 					<input type="hidden" name="customerType" value="natural">
-					<input type="submit" value="ثبت">
+					<input type="button" value="ثبت" onclick="Clicked()">
 				</td>
 			</tr>
 		</table>

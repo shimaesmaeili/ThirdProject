@@ -8,6 +8,6 @@
 <p id="generatedID" class="big">شماره مشتری:
 	<%=request.getAttribute("id")%>
 </p>
-<a href="/index.jsp">صفحه اصلی</a>
+<a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>

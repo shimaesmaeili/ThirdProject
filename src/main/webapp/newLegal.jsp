@@ -3,13 +3,35 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>مشتری حقوقی جدید</title>
+
+	<script>
+		function Validate() {
+			var frm = document.legalForm;
+			if (frm.name.value == "") {
+				alert("وارد کردن نام الزامی است!");
+				return false;
+			} else if (frm.regDate.value == "") {
+				alert("وارد کردن تاریخ ثبت الزامی است!");
+				return false;
+			} else if (frm.code.value == "") {
+				alert("وارد کردن کد اقتصادی الزامی است!");
+				return false;
+			}
+			return true;
+		}
+		function Clicked(){
+			if (Validate()){
+				document.legalForm.submit();
+			}
+		}
+	</script>
 </head>
 <body>
 
 <h3 class="center">اطلاعات مورد نیاز: </h3>
 
 <div>
-	<form action="newCustomer">
+	<form action="newCustomer" name="legalForm">
 		<table class="center">
 			<tr>
 				<td>نام شرکت:</td>
@@ -27,7 +49,7 @@
 				<td></td>
 				<td>
 					<input type="hidden" name="customerType" value="legal">
-					<input type="submit" value="ثبت">
+					<input type="button" value="ثبت" onclick="Clicked()">
 				</td>
 			</tr>
 		</table>
