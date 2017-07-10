@@ -1,7 +1,7 @@
 package controller;
 
 import domain.Customer;
-import domain.customerRepository;
+import domain.CustomerRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class showServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		customerRepository rep = customerRepository.getInstance();
+		CustomerRepository rep = CustomerRepository.getInstance();
 		Customer finded = null;
 		try {
 			finded = rep.findById(req.getParameter("customerType"), Integer.parseInt(req.getParameter("id")));

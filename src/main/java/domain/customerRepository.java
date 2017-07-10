@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
-public class customerRepository {
-	private static customerRepository theRepository = new customerRepository();
+public class CustomerRepository {
+	private static CustomerRepository theRepository = new CustomerRepository();
 	public static final String CONN_STR = "jdbc:mysql://localhost:3306/accounts?useUnicode=true&characterEncoding=UTF-8";
 	public static final String USER = "root";
 	public static final String PASSWORD = "root";
 	
-	public static customerRepository getInstance() {
+	public static CustomerRepository getInstance() {
 		return theRepository;
 	}
 	
-	private customerRepository() {
+	private CustomerRepository() {
 	}
 
 	public int insert(Customer customer) throws ClassNotFoundException {

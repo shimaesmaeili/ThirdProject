@@ -1,7 +1,7 @@
 package controller;
 
 import domain.Customer;
-import domain.customerRepository;
+import domain.CustomerRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class searchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		customerRepository rep = customerRepository.getInstance();
+		CustomerRepository rep = CustomerRepository.getInstance();
 		ArrayList<Customer> searchResults = null;
 		try {
 			searchResults = rep.search(req.getParameter("customerType"), req.getParameter("customerField"), req.getParameter("field"));
