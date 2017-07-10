@@ -20,28 +20,26 @@ public class CustomerRepository {
 	private CustomerRepository() {
 	}
 
-	public int insert(Customer customer) throws ClassNotFoundException {
-		try {
-			customer.setId(nextId());
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
-			Statement st = con.createStatement();
-			st.executeUpdate("INSERT INTO accounts.customer (id) VALUES (" + customer.getId() + ")");
-			if (customer.getClass() == Natural.class) {
-				Natural natural = (Natural) customer;
-				st.executeUpdate("INSERT INTO accounts.natural (idCode, firstName, lastName, fatherName, birthDate, id) VALUES ("
-						+ natural.getCode() + ", " + "'" + natural.getFirstName() + "', '" + natural.getLastName() + "', '"
-						+ natural.fatherName + "', '" + natural.getBirthDate() + "', " + natural.getId() + ")");
-
-			} else if (customer.getClass() == Legal.class) {
-				Legal legal = (Legal) customer;
-				st.executeUpdate("INSERT INTO accounts.legal (eCode, name, regDate, id) VALUES ("
-						+ legal.getCode() + ", " + "'" + legal.getName() + "', '" + legal.getRegDate() + "', " + legal.getId() + ")");
+	public int insert(Customer customer) throws ClassNotFoundException, SQLException {
+		customer.setId(nextId());
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
+		Statement st = con.createStatement();
+		st.executeUpdate("INSERT INTO accounts.customer (id) VALUES (" + customer.getId() + ")");
+		if (customer.getClass() == Natural.class) {
+			Natural natural = (Natural) customer;
+			if (exist("natural", natural.getCode())){
+				throw
 			}
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+			st.executeUpdate("INSERT INTO accounts.natural (idCode, firstName, lastName, fatherName, birthDate, id) VALUES ("
+					+ natural.getCode() + ", " + "'" + natural.getFirstName() + "', '" + natural.getLastName() + "', '"
+					+ natural.fatherName + "', '" + natural.getBirthDate() + "', " + natural.getId() + ")");
+		} else if (customer.getClass() == Legal.class) {
+			Legal legal = (Legal) customer;
+			st.executeUpdate("INSERT INTO accounts.legal (eCode, name, regDate, id) VALUES ("
+					+ legal.getCode() + ", " + "'" + legal.getName() + "', '" + legal.getRegDate() + "', " + legal.getId() + ")");
 		}
+		con.close();
 		return customer.getId();
 	}
 
@@ -65,8 +63,8 @@ public class CustomerRepository {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery("SELECT * FROM accounts." + type + " WHERE " + field + "='" + value + "'");
 		while (rs.next()) {
-			type = type.replaceFirst(type.substring(0,1), type.toUpperCase().substring(0,1));
-			Customer cust = (Customer) Class.forName("domain."+type).getConstructor(ResultSet.class).newInstance(rs);
+			type = type.replaceFirst(type.substring(0, 1), type.toUpperCase().substring(0, 1));
+			Customer cust = (Customer) Class.forName("domain." + type).getConstructor(ResultSet.class).newInstance(rs);
 			int id = rs.getInt("id");
 			cust.setId(id);
 			results.add(cust);
@@ -107,8 +105,8 @@ public class CustomerRepository {
 		Statement st = con.createStatement();
 		ResultSet rs = st.executeQuery("SELECT * FROM accounts." + type + " WHERE id=" + id);
 		if (rs.next()) {
-			type = type.replaceFirst(type.substring(0,1), type.toUpperCase().substring(0,1));
-			Customer cust = (Customer) Class.forName("domain."+type).getConstructor(ResultSet.class).newInstance(rs);
+			type = type.replaceFirst(type.substring(0, 1), type.toUpperCase().substring(0, 1));
+			Customer cust = (Customer) Class.forName("domain." + type).getConstructor(ResultSet.class).newInstance(rs);
 			cust.setId(id);
 			return cust;
 		}

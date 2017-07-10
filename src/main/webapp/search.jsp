@@ -7,7 +7,7 @@
 
 <body>
 <form id="search" action="/search">
-	<fieldset class="center">
+	<fieldset class="size">
 		نوع مشتری: <br>
 		<select id="customerType" name="customerType" onchange="byType(this.value)" class="fixed">
 			<option selected disabled hidden style='display: none' value=''></option>
@@ -28,7 +28,7 @@
 
 		<br>مقدار مورد نظر:<br>
 		<input type="text" name="field" class="fixed">
-		<br>
+		<br><br>
 		<input type="submit" value="جستجو">
 
 		<script type="text/javascript">
@@ -48,6 +48,7 @@
 		</script>
 	</fieldset>
 </form>
+<br><br>
 <a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>

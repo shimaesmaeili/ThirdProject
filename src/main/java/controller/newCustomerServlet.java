@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 import java.util.Map;
 
 public class newCustomerServlet extends HttpServlet {
@@ -31,6 +32,8 @@ public class newCustomerServlet extends HttpServlet {
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		req.getRequestDispatcher("/viewId.jsp").forward(req, resp);

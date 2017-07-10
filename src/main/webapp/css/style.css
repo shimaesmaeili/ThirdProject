@@ -1,6 +1,11 @@
-.center{
+.center {
     align-items: center;
     text-align: center;
+}
+.size {
+    width: 200px;
+    margin:auto;
+    border: none;
 }
 .big {
     font-size: 200%;
@@ -8,9 +13,6 @@
     text-align: center;
 }
 .link {
-    text-align: center;
-    direction: rtl;
-    font-family: "B Nazanin+ Regular";
     display: block;
     background-color: #f2f2f2;
     color: #000;
@@ -21,12 +23,18 @@
     width: 500px;
 }
 .fixed {
-    width: 250px;
+    width: 200px;
 }
 
-a:hover {
+a.link:hover {
     background-color: #555;
     color: white;
+}
+
+a {
+    text-align: center;
+    direction: rtl;
+    font-family: "B Nazanin+ Regular";
 }
 
 input, select {
@@ -42,12 +50,14 @@ input, select {
 input[type=submit] {
     display: block;
     margin: auto;
-    width: 250px;
+    width: 100px;
     background-color: #4CAF50;
     color: white;
-    border: none;
+    border: 1px solid #4CAF50;
     border-radius: 4px;
     cursor: pointer;
+    font-size: medium;
+    float: left;
 }
 
 input[type=submit]:hover {

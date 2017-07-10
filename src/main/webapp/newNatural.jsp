@@ -16,29 +16,35 @@
 		<table>
 			<tr>
 				<td>نام:</td>
-				<td><input type="text" id="first" name="firstName"><br></td>
+				<td><input type="text" id="first" name="firstName" class="fixed"><br></td>
 			</tr>
 			<tr>
 				<td>نام خانوادگی:</td>
-				<td><input type="text" name="lastName"></td>
+				<td><input type="text" name="lastName" class="fixed"></td>
 			</tr>
 			<tr>
 				<td>نام پدر:</td>
-				<td><input type="text" name="fatherName"></td>
+				<td><input type="text" name="fatherName" class="fixed"></td>
 			</tr>
 			<tr>
 				<td>تاریخ تولد:</td>
-				<td><input type="date" name="birthDate"></td>
+				<td><input type="date" name="birthDate" class="fixed"></td>
 			</tr>
 			<tr>
 				<td>کد ملی:</td>
-				<td><input type="text" name="code"></td>
+				<td><input type="text" name="code" class="fixed"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="hidden" name="customerType" value="natural">
+					<input type="submit" value="ثبت">
+				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="customerType" value="natural">
-		<input type="submit" value="ثبت">
 	</form>
 </div>
+<br><br><br><br>
 <a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>

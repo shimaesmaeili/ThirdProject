@@ -13,21 +13,27 @@
 		<table class="center">
 			<tr>
 				<td>نام شرکت:</td>
-				<td><input type="text" name="name"><br></td>
+				<td><input type="text" name="name" class="fixed"><br></td>
 			</tr>
 			<tr>
 				<td>تاریخ ثبت:</td>
-				<td><input type="date" name="regDate"></td>
+				<td><input type="date" name="regDate" class="fixed"></td>
 			</tr>
 			<tr>
 				<td>کد اقتصادی:</td>
-				<td><input type="text" name="code"></td>
+				<td><input type="text" name="code" class="fixed"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="hidden" name="customerType" value="legal">
+					<input type="submit" value="ثبت">
+				</td>
 			</tr>
 		</table>
-		<input type="hidden" name="customerType" value="legal">
-		<input type="submit" value="ثبت">
 	</form>
 </div>
+<br><br><br><br>
 <a href="/index.jsp" class="link">صفحه اصلی</a>
 </body>
 </html>
