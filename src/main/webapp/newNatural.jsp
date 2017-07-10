@@ -38,7 +38,7 @@
 <body>
 <h3 class="center">اطلاعات مورد نیاز: </h3>
 <div>
-	<form action="newCustomer" name="naturalForm">
+	<form action="newCustomer" method="post" name="naturalForm">
 		<table>
 			<tr>
 				<td>نام:</td>

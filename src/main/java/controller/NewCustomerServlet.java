@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class NewCustomerServlet extends HttpServlet {
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 		CustomerRepository rep = CustomerRepository.getInstance();
 		Map<String, String[]> mapParam = req.getParameterMap();
 

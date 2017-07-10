@@ -28,7 +28,8 @@ public class CustomerRepository {
 		st.executeUpdate("INSERT INTO accounts.customer (id) VALUES (" + customer.getId() + ")");
 		if (customer.getClass() == Natural.class) {
 			Natural natural = (Natural) customer;
-			if (getID("natural", natural.getCode()) == 0) {
+			System.out.println(natural.getCode());
+			if (getID("natural", natural.getCode()) != 0) {
 				return 0;
 			}
 			st.executeUpdate("INSERT INTO accounts.natural (idCode, firstName, lastName, fatherName, birthDate, id) VALUES ("
@@ -36,7 +37,7 @@ public class CustomerRepository {
 					+ natural.fatherName + "', '" + natural.getBirthDate() + "', " + natural.getId() + ")");
 		} else if (customer.getClass() == Legal.class) {
 			Legal legal = (Legal) customer;
-			if (getID("legal", legal.getCode()) == 0) {
+			if (getID("legal", legal.getCode()) != 0) {
 				return 0;
 			}
 			st.executeUpdate("INSERT INTO accounts.legal (eCode, name, regDate, id) VALUES ("
