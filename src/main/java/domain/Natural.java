@@ -1,6 +1,6 @@
 package domain;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,13 +8,13 @@ import java.util.Enumeration;
 import java.util.Map;
 
 public class Natural extends Customer {
-	BigDecimal idCode;
+	BigInteger idCode;
 	String firstName;
 	String lastName;
 	String fatherName;
 	Date birthDate;
 
-	public Natural(BigDecimal idCode, String first, String last, String father, Date birth) {
+	public Natural(BigInteger idCode, String first, String last, String father, Date birth) {
 		this.idCode = idCode;
 		this.firstName = first;
 		this.lastName = last;
@@ -23,7 +23,7 @@ public class Natural extends Customer {
 	}
 
 	public Natural(Map<String, String[]> values) {
-		this.idCode = new BigDecimal(values.get("code")[0]);
+		this.idCode = new BigInteger(values.get("code")[0]);
 		this.firstName = values.get("firstName")[0];
 		this.lastName = values.get("lastName")[0];
 		this.fatherName = values.get("fatherName")[0];
@@ -31,18 +31,18 @@ public class Natural extends Customer {
 	}
 
 	public Natural(ResultSet rs) throws SQLException {
-		this.idCode = new BigDecimal(rs.getString("idCode"));
+		this.idCode = new BigInteger(rs.getString("idCode"));
 		this.firstName = rs.getString("firstName");
 		this.lastName = rs.getString("lastName");
 		this.fatherName = rs.getString("fatherName");
 		this.birthDate = Date.valueOf(rs.getString("birthDate").substring(0, 10));
 	}
 
-	public BigDecimal getCode() {
+	public BigInteger getCode() {
 		return idCode;
 	}
 
-	public void setCode(BigDecimal naturalId) {
+	public void setCode(BigInteger naturalId) {
 		this.idCode = naturalId;
 	}
 

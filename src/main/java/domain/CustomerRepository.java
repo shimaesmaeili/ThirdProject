@@ -1,7 +1,7 @@
 package domain;
 
 import java.lang.reflect.InvocationTargetException;
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Map;
@@ -89,12 +89,12 @@ public class CustomerRepository {
 	public int update(Map<String, String[]> mapParam) throws ClassNotFoundException, SQLException {
 		Set<String> keys = mapParam.keySet();
 		String set = "";
-		BigDecimal code = null;
+		BigInteger code = null;
 		for (String key : keys) {
 			if (!key.equals("customerType") && !key.equals("id")) {
 				set = set + key + "='" + mapParam.get(key)[0] + "', ";
 				if (key.contains("Code")){
-					code = new BigDecimal(mapParam.get(key)[0]);
+					code = new BigInteger(mapParam.get(key)[0]);
 				}
 			}
 		}
@@ -127,7 +127,7 @@ public class CustomerRepository {
 		return null;
 	}
 
-	public int getID(String type, BigDecimal code) throws ClassNotFoundException, SQLException {
+	public int getID(String type, BigInteger code) throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
 		Statement st = con.createStatement();
