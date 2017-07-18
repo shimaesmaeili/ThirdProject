@@ -5,44 +5,53 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>newCustomerServlet</servlet-name>
-        <servlet-class>controller.NewCustomerServlet</servlet-class>
+        <servlet-name>newRealCustomerServlet</servlet-name>
+        <servlet-class>controller.NewRealCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>newCustomerServlet</servlet-name>
-        <url-pattern>/newCustomer</url-pattern>
+        <servlet-name>newRealCustomerServlet</servlet-name>
+        <url-pattern>/newRealCustomer</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>searchServlet</servlet-name>
-        <servlet-class>controller.SearchServlet</servlet-class>
+        <servlet-name>newLegalCustomerServlet</servlet-name>
+        <servlet-class>controller.NewLegalCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>searchServlet</servlet-name>
-        <url-pattern>/search</url-pattern>
+        <servlet-name>newLegalCustomerServlet</servlet-name>
+        <url-pattern>/newLegalCustomer</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>removeServlet</servlet-name>
-        <servlet-class>controller.RemoveServlet</servlet-class>
+        <servlet-name>findCustomersServlet</servlet-name>
+        <servlet-class>controller.FindCustomersServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>removeServlet</servlet-name>
-        <url-pattern>/remove</url-pattern>
+        <servlet-name>findCustomersServlet</servlet-name>
+        <url-pattern>/find</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>showServlet</servlet-name>
-        <servlet-class>controller.ShowServlet</servlet-class>
+        <servlet-name>removeCustomerServlet</servlet-name>
+        <servlet-class>controller.RemoveCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>showServlet</servlet-name>
-        <url-pattern>/show</url-pattern>
+        <servlet-name>removeCustomerServlet</servlet-name>
+        <url-pattern>/removeCustomer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>showCustomerServlet</servlet-name>
+        <servlet-class>controller.ShowCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showCustomerServlet</servlet-name>
+        <url-pattern>/showCustomer</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>updateServlet</servlet-name>
-        <servlet-class>controller.UpdateServlet</servlet-class>
+        <servlet-class>controller.UpdateCustomerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>updateServlet</servlet-name>

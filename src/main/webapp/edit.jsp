@@ -15,7 +15,7 @@
 <div>
 	<form action="update" method="post">
 		<table class="center">
-			<c:if test="${customerType=='natural'}">
+			<c:if test="${customerType=='real'}">
 				<tr>
 					<td>نام:</td>
 					<td><input type="text" id="first" name="firstName" value=${customer.firstName}><br></td>
@@ -34,7 +34,7 @@
 				</tr>
 				<tr>
 					<td>کد ملی:</td>
-					<td><input type="text" name="idCode" value=${customer.code}></td>
+					<td><input type="text" name="idCode" value=${customer.idCode}></td>
 				</tr>
 			</c:if>
 			<c:if test="${customerType=='legal'}">
@@ -44,11 +44,11 @@
 				</tr>
 				<tr>
 					<td>تاریخ ثبت:</td>
-					<td><input type="date" name="regDate" value=${customer.regDate}></td>
+					<td><input type="date" name="registrationDate" value=${customer.registrationDate}></td>
 				</tr>
 				<tr>
 					<td>کد اقتصادی:</td>
-					<td><input type="text" name="eCode" value=${customer.code}></td>
+					<td><input type="text" name="eCode" value=${customer.eCode}></td>
 				</tr>
 			</c:if>
 			<tr>
@@ -63,6 +63,6 @@
 	</form>
 </div>
 <br><br>
-<a href="/index.jsp" class="link">صفحه اصلی</a>
+<a href="/index.html" class="link">صفحه اصلی</a>
 </body>
 </html>

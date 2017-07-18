@@ -9,7 +9,7 @@
 
 	<script>
 		function Validate() {
-			var frm = document.naturalForm;
+			var frm = document.realForm;
 			if (frm.firstName.value == "") {
 				alert("وارد کردن نام الزامی است!");
 				return false;
@@ -30,7 +30,7 @@
 		}
 		function Clicked(){
 			if (Validate()){
-				document.naturalForm.submit();
+				document.realForm.submit();
 			}
 		}
 	</script>
@@ -38,11 +38,11 @@
 <body>
 <h3 class="center">اطلاعات مورد نیاز: </h3>
 <div>
-	<form action="newCustomer" method="post" name="naturalForm">
+	<form action="newRealCustomer" method="post" name="realForm">
 		<table>
 			<tr>
 				<td>نام:</td>
-				<td><input type="text" id="first" name="firstName" class="fixed"><br></td>
+				<td><input type="text" name="firstName" class="fixed"><br></td>
 			</tr>
 			<tr>
 				<td>نام خانوادگی:</td>
@@ -58,19 +58,18 @@
 			</tr>
 			<tr>
 				<td>کد ملی:</td>
-				<td><input type="text" name="code" class="fixed"></td>
+				<td><input type="text" name="idCode" class="fixed"></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<input type="hidden" name="customerType" value="natural">
-					<input type="button" value="ثبت" onclick="Clicked()">
+					<input type="submit" value="ثبت">
 				</td>
 			</tr>
 		</table>
 	</form>
 </div>
 <br><br><br><br>
-<a href="/index.jsp" class="link">صفحه اصلی</a>
+<a href="/index.html" class="link">صفحه اصلی</a>
 </body>
 </html>

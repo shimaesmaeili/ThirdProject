@@ -1,4 +1,4 @@
-package domain;
+package dao;
 
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
@@ -20,46 +20,6 @@ public class CustomerRepository {
 	private CustomerRepository() {
 	}
 
-	public int insert(Customer customer) throws ClassNotFoundException, SQLException {
-		customer.setId(nextId());
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
-		Statement st = con.createStatement();
-		st.executeUpdate("INSERT INTO accounts.customer (id) VALUES (" + customer.getId() + ")");
-		if (customer.getClass() == Natural.class) {
-			Natural natural = (Natural) customer;
-			System.out.println(natural.getCode());
-			if (getID("natural", natural.getCode()) != 0) {
-				return 0;
-			}
-			st.executeUpdate("INSERT INTO accounts.natural (idCode, firstName, lastName, fatherName, birthDate, id) VALUES ("
-					+ natural.getCode() + ", " + "'" + natural.getFirstName() + "', '" + natural.getLastName() + "', '"
-					+ natural.fatherName + "', '" + natural.getBirthDate() + "', " + natural.getId() + ")");
-		} else if (customer.getClass() == Legal.class) {
-			Legal legal = (Legal) customer;
-			if (getID("legal", legal.getCode()) != 0) {
-				return 0;
-			}
-			st.executeUpdate("INSERT INTO accounts.legal (eCode, name, regDate, id) VALUES ("
-					+ legal.getCode() + ", " + "'" + legal.getName() + "', '" + legal.getRegDate() + "', " + legal.getId() + ")");
-		}
-		con.close();
-		return customer.getId();
-	}
-
-	public int nextId() throws SQLException, ClassNotFoundException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery("SELECT max(id) as max_id from accounts.customer");
-		int maxId = 0;
-		if (rs.next()) {
-			maxId = rs.getInt("max_id");
-		}
-		con.close();
-		return maxId + 1;
-	}
-
 	public ArrayList<Customer> search(String type, String field, String value) throws SQLException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 		ArrayList<Customer> results = new ArrayList<Customer>();
 		Class.forName("com.mysql.jdbc.Driver");
@@ -68,23 +28,23 @@ public class CustomerRepository {
 		ResultSet rs = st.executeQuery("SELECT * FROM accounts." + type + " WHERE " + field + "='" + value + "'");
 		while (rs.next()) {
 			type = type.replaceFirst(type.substring(0, 1), type.toUpperCase().substring(0, 1));
-			Customer cust = (Customer) Class.forName("domain." + type).getConstructor(ResultSet.class).newInstance(rs);
+			Customer cust = (Customer) Class.forName("dao." + type).getConstructor(ResultSet.class).newInstance(rs);
 			int id = rs.getInt("id");
-			cust.setId(id);
+			cust.setId(String.valueOf(id));
 			results.add(cust);
 		}
 		con.close();
 		return results;
 	}
 
-	public void remove(String customerType, int id) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
-		Statement st = con.createStatement();
-		st.executeUpdate("DELETE FROM accounts." + customerType + " WHERE id=" + id);
-		st.executeUpdate("DELETE FROM accounts.customer" + " WHERE id=" + id);
-		con.close();
-	}
+//	public void remove(String customerType, int id) throws ClassNotFoundException, SQLException {
+//		Class.forName("com.mysql.jdbc.Driver");
+//		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
+//		Statement st = con.createStatement();
+//		st.executeUpdate("DELETE FROM accounts." + customerType + " WHERE id=" + id);
+//		st.executeUpdate("DELETE FROM accounts.customer" + " WHERE id=" + id);
+//		con.close();
+//	}
 
 	public int update(Map<String, String[]> mapParam) throws ClassNotFoundException, SQLException {
 		Set<String> keys = mapParam.keySet();
@@ -120,8 +80,8 @@ public class CustomerRepository {
 		ResultSet rs = st.executeQuery("SELECT * FROM accounts." + type + " WHERE id=" + id);
 		if (rs.next()) {
 			type = type.replaceFirst(type.substring(0, 1), type.toUpperCase().substring(0, 1));
-			Customer cust = (Customer) Class.forName("domain." + type).getConstructor(ResultSet.class).newInstance(rs);
-			cust.setId(id);
+			Customer cust = (Customer) Class.forName("dao." + type).getConstructor(ResultSet.class).newInstance(rs);
+			cust.setId(String.valueOf(id));
 			return cust;
 		}
 		return null;
@@ -132,8 +92,8 @@ public class CustomerRepository {
 		Connection con = DriverManager.getConnection(CONN_STR, USER, PASSWORD);
 		Statement st = con.createStatement();
 		ResultSet rs = null;
-		if (type.equals("natural")) {
-			rs = st.executeQuery("select id from accounts.natural where idCode=" + code);
+		if (type.equals("real")) {
+			rs = st.executeQuery("select id from accounts.real where idCode=" + code);
 		} else if (type.equals("legal")) {
 			rs = st.executeQuery("select id from accounts.legal where eCode=" + code);
 		}

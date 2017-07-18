@@ -10,10 +10,10 @@
 			if (frm.customerType.value == "") {
 				alert("انتخاب نوع مشتری الزامی است!");
 				return false;
-			} else if (frm.customerField.value == "") {
+			} else if (frm.field.value == "") {
 				alert("انتخاب فیلد جستجو الزامی است!");
 				return false;
-			} else if (frm.field.value == "") {
+			} else if (frm.value.value == "") {
 				alert("وارد کردن عبارت جستجو الزامی است!");
 				return false;
 			}
@@ -28,34 +28,34 @@
 </head>
 
 <body>
-<form id="search" action="/search" method="post" name="searchForm">
+<form id="search" action="/find" method="post" name="searchForm">
 	<fieldset class="size">
 		نوع مشتری: <br>
 		<select id="customerType" name="customerType" onchange="byType(this.value)" class="fixed">
 			<option selected disabled hidden style='display: none' value=''></option>
-			<option value="natural">مشتری حقیقی</option>
+			<option value="real">مشتری حقیقی</option>
 			<option value="legal">مشتری حقوقی</option>
 		</select>
 
 		<br>جستجو بر اساس: <br>
-		<select id="customerField" name="customerField" selected="id" class="fixed">
-			<option data-option="natural" value="firstName">نام</option>
-			<option data-option="natural" value="lastName">نام خانوادگی</option>
-			<option data-option="natural" value="idCode">کد ملی</option>
-			<option data-option="natural" value="id">شماره مشتری</option>
+		<select id="field" name="field" selected="id" class="fixed">
+			<option data-option="real" value="firstName">نام</option>
+			<option data-option="real" value="lastName">نام خانوادگی</option>
+			<option data-option="real" value="idCode">کد ملی</option>
+			<option data-option="real" value="id">شماره مشتری</option>
 			<option data-option="legal" value="name">نام شرکت</option>
 			<option data-option="legal" value="eCode">کد اقتصادی</option>
 			<option data-option="legal" value="id">شماره مشتری</option>
 		</select>
 
 		<br>مقدار مورد نظر:<br>
-		<input type="text" name="field" class="fixed">
+		<input type="text" name="value" class="fixed">
 		<br><br>
 		<input type="button" value="جستجو" onclick="Clicked()">
 
 		<script type="text/javascript">
 			var sel1 = document.querySelector('#customerType');
-			var sel2 = document.querySelector('#customerField');
+			var sel2 = document.querySelector('#field');
 			var options2 = sel2.querySelectorAll('option');
 
 			function byType(selValue) {
@@ -71,6 +71,6 @@
 	</fieldset>
 </form>
 <br><br>
-<a href="/index.jsp" class="link">صفحه اصلی</a>
+<a href="/index.html" class="link">صفحه اصلی</a>
 </body>
 </html>

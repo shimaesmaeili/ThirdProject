@@ -12,7 +12,7 @@
 		<th>
 			شماره مشتری
 		</th>
-		<c:if test="${customerType=='natural'}">
+		<c:if test="${customerType=='real'}">
 			<th>
 				نام
 			</th>
@@ -46,27 +46,27 @@
 			<td>
 				<c:out value="${customer.id}"/>
 			</td>
-			<c:if test="${customerType=='natural'}">
+			<c:if test="${customerType=='real'}">
 				<td><c:out value="${customer.firstName}"/></td>
 				<td><c:out value="${customer.lastName}"/></td>
 				<td><c:out value="${customer.fatherName}"/></td>
-				<td><c:out value="${customer.code}"/></td>
+				<td><c:out value="${customer.idCode}"/></td>
 				<td><c:out value="${customer.birthDate}"/></td>
 			</c:if>
 			<c:if test="${customerType=='legal'}">
 				<td><c:out value="${customer.name}"/></td>
-				<td><c:out value="${customer.code}"/></td>
-				<td><c:out value="${customer.regDate}"/></td>
+				<td><c:out value="${customer.eCode}"/></td>
+				<td><c:out value="${customer.registrationDate}"/></td>
 			</c:if>
 			<td>
-				<c:url var="editUrl" value="show">
+				<c:url var="editUrl" value="/showCustomer">
 					<c:param name="customerType" value="${customerType}"/>
 					<c:param name="id" value="${customer.id}"/>
 				</c:url>
 				<a href="${editUrl}">ویرایش</a>
 			</td>
 			<td>
-				<c:url var="removeUrl" value="remove">
+				<c:url var="removeUrl" value="/removeCustomer">
 					<c:param name="customerType" value="${customerType}"/>
 					<c:param name="id" value="${customer.id}"/>
 				</c:url>
@@ -78,6 +78,6 @@
 <br><br><br><br>
 <a href="/search.jsp" class="link">بازگشت به صفحه جستجو</a>
 <br>
-<a href="/index.jsp" class="link">صفحه اصلی</a>
+<a href="/index.html" class="link">صفحه اصلی</a>
 </body>
 </html>

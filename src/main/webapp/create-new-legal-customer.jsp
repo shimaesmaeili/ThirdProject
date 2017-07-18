@@ -10,7 +10,7 @@
 			if (frm.name.value == "") {
 				alert("وارد کردن نام الزامی است!");
 				return false;
-			} else if (frm.regDate.value == "") {
+			} else if (frm.registrationDate.value == "") {
 				alert("وارد کردن تاریخ ثبت الزامی است!");
 				return false;
 			} else if (frm.code.value == "") {
@@ -31,7 +31,7 @@
 <h3 class="center">اطلاعات مورد نیاز: </h3>
 
 <div>
-	<form action="newCustomer" method="post" name="legalForm">
+	<form action="newLegalCustomer" method="post" name="legalForm">
 		<table class="center">
 			<tr>
 				<td>نام شرکت:</td>
@@ -39,23 +39,24 @@
 			</tr>
 			<tr>
 				<td>تاریخ ثبت:</td>
-				<td><input type="date" name="regDate" class="fixed"></td>
+				<td><input type="date" name="registrationDate" class="fixed"></td>
 			</tr>
 			<tr>
 				<td>کد اقتصادی:</td>
-				<td><input type="text" name="code" class="fixed"></td>
+				<td><input type="text" name="eCode" class="fixed"></td>
 			</tr>
 			<tr>
 				<td></td>
 				<td>
-					<input type="hidden" name="customerType" value="legal">
-					<input type="button" value="ثبت" onclick="Clicked()">
+					<%--<input type="hidden" name="customerType" value="legal">--%>
+					<%--<input type="button" value="ثبت" onclick="Clicked()">--%>
+						<input type="submit" value="ثبت">
 				</td>
 			</tr>
 		</table>
 	</form>
 </div>
 <br><br><br><br>
-<a href="/index.jsp" class="link">صفحه اصلی</a>
+<a href="/index.html" class="link">صفحه اصلی</a>
 </body>
 </html>
