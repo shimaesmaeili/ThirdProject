@@ -2,16 +2,13 @@ package dao;
 
 import java.math.BigInteger;
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Map;
 
 public class Real extends Customer {
-	BigInteger idCode;
-	String firstName;
-	String lastName;
-	String fatherName;
-	Date birthDate;
+	private BigInteger idCode;
+	private String firstName;
+	private String lastName;
+	private String fatherName;
+	private Date birthDate;
 
 	public Real() {
 	}

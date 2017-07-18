@@ -5,8 +5,6 @@ import java.math.BigInteger;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class RealCRUD {
 	private static final String CONN_STR = "jdbc:mysql://localhost:3306/accounts?useUnicode=true&characterEncoding=UTF-8";
@@ -20,7 +18,7 @@ public class RealCRUD {
 		CustomerCRUD.insert(real);
 		st.executeUpdate("INSERT INTO accounts.real (idCode, firstName, lastName, fatherName, birthDate, id) VALUES ("
 				+ real.getIdCode() + ", " + "'" + real.getFirstName() + "', '" + real.getLastName() + "', '"
-				+ real.fatherName + "', '" + real.getBirthDate() + "', " + real.getId() + ")");
+				+ real.getFatherName() + "', '" + real.getBirthDate() + "', " + real.getId() + ")");
 		connection.close();
 		return real.getId();
 	}

@@ -2,14 +2,11 @@ package dao;
 
 import java.math.BigInteger;
 import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Map;
 
 public class Legal extends Customer {
-	BigInteger eCode;
-	String name;
-	Date registrationDate;
+	private BigInteger eCode;
+	private String name;
+	private Date registrationDate;
 
 	public Legal() {
 	}
