@@ -17,7 +17,7 @@ public class Verify {
 
 	public static boolean isValidCodeReal(String id, BigInteger newIdCode) throws SQLException, ClassNotFoundException {
 		String assignedId = RealCRUD.findIdByCode(newIdCode);
-		if (assignedId==null || assignedId.equals(id)) {
+		if (assignedId == null || assignedId.equals(id)) {
 			return true;
 		} else {
 			return false;
@@ -26,7 +26,7 @@ public class Verify {
 
 	public static boolean isValidCodeLegal(String id, BigInteger newCode) throws SQLException, ClassNotFoundException {
 		String assignedId = LegalCRUD.findIdByCode(newCode);
-		if (assignedId==null || assignedId.equals(id)) {
+		if (assignedId == null || assignedId.equals(id)) {
 			return true;
 		} else {
 			return false;

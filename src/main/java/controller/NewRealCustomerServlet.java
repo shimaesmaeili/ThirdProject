@@ -23,7 +23,7 @@ public class NewRealCustomerServlet extends HttpServlet {
 		Date birthDate = Date.valueOf(request.getParameter("birthDate"));
 		try {
 			String id = Insert.insertRealCustomer(idCode, firstName, lastName, fatherName, birthDate);
-			if (id != null){
+			if (id != null) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = new PrintWriter(
 						new OutputStreamWriter(response.getOutputStream(), "UTF-8"), true);
