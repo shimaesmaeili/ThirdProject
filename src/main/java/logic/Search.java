@@ -1,6 +1,5 @@
 package logic;
 
-import dao.Legal;
 import dao.LegalCRUD;
 import dao.RealCRUD;
 
