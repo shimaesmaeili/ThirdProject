@@ -1,7 +1,6 @@
 package controller;
 
 import logic.Insert;
-import logic.Uniqueness;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +22,8 @@ public class NewRealCustomerServlet extends HttpServlet {
 		String fatherName = request.getParameter("fatherName");
 		Date birthDate = Date.valueOf(request.getParameter("birthDate"));
 		try {
-			if (Uniqueness.getRealId(idCode) == null){
-				String id = Insert.insertRealCustomer(idCode, firstName, lastName, fatherName, birthDate);
+			String id = Insert.insertRealCustomer(idCode, firstName, lastName, fatherName, birthDate);
+			if (id != null){
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = new PrintWriter(
 						new OutputStreamWriter(response.getOutputStream(), "UTF-8"), true);
@@ -45,8 +44,6 @@ public class NewRealCustomerServlet extends HttpServlet {
 						"</body>\n" +
 						"</html>"
 				);
-//				request.setAttribute("id", id);
-//				request.getRequestDispatcher("/show-new-customer-id.jsp").forward(request, response);
 			} else {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = new PrintWriter(
@@ -68,8 +65,6 @@ public class NewRealCustomerServlet extends HttpServlet {
 						"</body>\n" +
 						"</html>"
 				);
-//				request.setAttribute("message", "مشتری با این کد ملی قبلا ثبت شده است.");
-//				request.getRequestDispatcher("/error.html").forward(request, response);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

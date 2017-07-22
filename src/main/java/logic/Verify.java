@@ -6,7 +6,7 @@ import dao.RealCRUD;
 import java.math.BigInteger;
 import java.sql.SQLException;
 
-public class Uniqueness {
+public class Verify {
 	public static String getRealId(BigInteger idCode) throws SQLException, ClassNotFoundException {
 		return RealCRUD.findIdByCode(idCode);
 	}

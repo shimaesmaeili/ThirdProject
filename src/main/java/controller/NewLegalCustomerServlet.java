@@ -1,7 +1,6 @@
 package controller;
 
 import logic.Insert;
-import logic.Uniqueness;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,8 @@ public class NewLegalCustomerServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		Date registrationDate = Date.valueOf(request.getParameter("registrationDate"));
 		try {
-			if (Uniqueness.getLegalId(eCode) == null) {
-				String id = Insert.insertLegalCustomer(eCode, name, registrationDate);
+			String id = Insert.insertLegalCustomer(eCode, name, registrationDate);
+			if (id != null) {
 				request.setAttribute("id", id);
 				request.getRequestDispatcher("/show-new-customer-id.jsp").forward(request, response);
 			} else {

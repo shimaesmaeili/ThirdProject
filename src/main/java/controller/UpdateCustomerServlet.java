@@ -1,6 +1,5 @@
 package controller;
 
-import logic.Uniqueness;
 import logic.Update;
 
 import javax.servlet.ServletException;
@@ -8,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.sql.SQLException;
 import java.util.HashMap;
 
@@ -24,8 +22,7 @@ public class UpdateCustomerServlet extends HttpServlet {
 			newValues.put("fatherName", request.getParameter("fatherName"));
 			newValues.put("birthDate", request.getParameter("birthDate"));
 			try {
-				if (Uniqueness.isValidCodeReal(request.getParameter("id"), new BigInteger(request.getParameter("idCode")))) {
-					Update.updateRealCustomer(newValues);
+				if (Update.updateRealCustomer(newValues)) {
 					request.getRequestDispatcher("/index.html").forward(request, response);
 				} else {
 					request.setAttribute("message", "امکان تغییر کد ملی مشتری به کد ملی جدید وجود ندارد!");
@@ -47,8 +44,7 @@ public class UpdateCustomerServlet extends HttpServlet {
 			newValues.put("name", request.getParameter("name"));
 			newValues.put("registrationDate", request.getParameter("registrationDate"));
 			try {
-				if (Uniqueness.isValidCodeLegal(request.getParameter("id"), new BigInteger(request.getParameter("eCode")))) {
-					Update.updateLegalCustomer(newValues);
+				if (Update.updateLegalCustomer(newValues)) {
 					request.getRequestDispatcher("/index.html").forward(request, response);
 				} else {
 					request.setAttribute("message", "امکان تغییر کد اقتصادی مشتری به کد اقتصادی جدید وجود ندارد!");

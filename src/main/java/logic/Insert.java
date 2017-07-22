@@ -11,22 +11,30 @@ import java.sql.SQLException;
 
 public class Insert {
 	public static String insertRealCustomer(BigInteger idCode, String firstName, String lastName, String fatherName, Date birthDate) throws SQLException, ClassNotFoundException {
-		Real real = new Real();
-		real.setIdCode(idCode);
-		real.setFirstName(firstName);
-		real.setLastName(lastName);
-		real.setFatherName(fatherName);
-		real.setBirthDate(birthDate);
+		if (Verify.getRealId(idCode) == null) {
+			Real real = new Real();
+			real.setIdCode(idCode);
+			real.setFirstName(firstName);
+			real.setLastName(lastName);
+			real.setFatherName(fatherName);
+			real.setBirthDate(birthDate);
 
-		return RealCRUD.insert(real);
+			return RealCRUD.insert(real);
+		} else {
+			return null;
+		}
 	}
 
 	public static String insertLegalCustomer(BigInteger eCode, String name, Date registrationDate) throws SQLException, ClassNotFoundException {
-		Legal legal = new Legal();
-		legal.seteCode(eCode);
-		legal.setName(name);
-		legal.setRegistrationDate(registrationDate);
+		if (Verify.getLegalId(eCode) == null) {
+			Legal legal = new Legal();
+			legal.seteCode(eCode);
+			legal.setName(name);
+			legal.setRegistrationDate(registrationDate);
 
-		return LegalCRUD.insert(legal);
+			return LegalCRUD.insert(legal);
+		} else {
+			return null;
+		}
 	}
 }
